@@ -83,8 +83,8 @@ function simulateUpdateCheck() {
         </div>
 
         <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-cyber-muted">
-          <a href="#features" class="hover:text-cyber-mint transition-colors">Features</a>
           <a href="#simulator" class="hover:text-cyber-mint transition-colors">Interactive Demo</a>
+          <a href="#features" class="hover:text-cyber-mint transition-colors">Features</a>
           <a href="#install" class="hover:text-cyber-mint transition-colors">Install</a>
         </nav>
 
@@ -162,7 +162,7 @@ function simulateUpdateCheck() {
     </section>
 
     <!-- Interactive Notch Live Simulator -->
-    <section id="simulator" class="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+    <section id="simulator" class="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto scroll-mt-24">
       <div class="text-center mb-8">
         <h2 class="text-2xl sm:text-3xl font-bold text-white">Experience the Shelf Live</h2>
         <p class="text-sm text-cyber-muted mt-2">Hover over the notch pill at the top of the monitor to see the shelf slide down beneath it, just like on Linux.</p>
@@ -446,7 +446,7 @@ function simulateUpdateCheck() {
     </section>
 
     <!-- Bento Grid Features Section -->
-    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-24">
       <div class="text-center mb-14">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Designed for Linux Power Users</h2>
         <p class="mt-3 text-base text-cyber-muted max-w-2xl mx-auto">
@@ -524,7 +524,7 @@ function simulateUpdateCheck() {
     </section>
 
     <!-- Installation Section -->
-    <section id="install" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <section id="install" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto scroll-mt-24">
       <div class="text-center mb-10">
         <h2 class="text-3xl font-extrabold text-white">Install OpenNotch</h2>
         <p class="text-sm text-cyber-muted mt-2">Choose your preferred installation method below.</p>
