@@ -4,7 +4,8 @@ import {
   Play, Pause, SkipForward, SkipBack, Music, 
   Clock, FileText, Settings, Download, Github, 
   ExternalLink, Check, Copy, Layers, Shield, RefreshCw, 
-  Sparkles, Monitor, HardDrive, WifiOff, ShieldCheck, Database, Zap
+  Sparkles, Monitor, HardDrive, WifiOff, ShieldCheck, Database, Zap,
+  ChevronDown, HelpCircle
 } from 'lucide-vue-next'
 
 // State for interactive simulator
@@ -61,6 +62,44 @@ function simulateUpdateCheck() {
   setTimeout(() => {
     updateStatus.value = 'latest'
   }, 1200)
+}
+
+// FAQ Section
+const faqs = ref([
+  {
+    q: "Is it free?",
+    a: "Yes, 100% free for a lifetime under the permissive MIT open-source license. There are no subscriptions, no paid tiers, and no features locked behind paywalls.",
+    open: true
+  },
+  {
+    q: "Where is my data stored?",
+    a: "Always stored locally on your machine. All your notes, clipboard clippings, drop shelf items, and configurations remain strictly inside your local user directory (~/.config/open-notch/). Zero cloud servers, zero telemetry.",
+    open: false
+  },
+  {
+    q: "Does it support both Wayland and X11?",
+    a: "Yes! OpenNotch supports modern Wayland compositors (Hyprland, Sway, River) using the native wlr-layer-shell protocol, as well as X11 / XWayland environments (GNOME, XFCE, i3, KWin) via standard EWMH dock hints.",
+    open: false
+  },
+  {
+    q: "How does it impact battery life and system performance?",
+    a: "Virtually zero impact. Compiled in native Rust and GTK4 with no Electron or Chromium bloat, OpenNotch consumes under 25MB of RAM and remains completely dormant at 0% CPU until you hover over the top bezel.",
+    open: false
+  },
+  {
+    q: "Which media players can I control?",
+    a: "Any media player that adheres to the standard Linux MPRIS D-Bus specification. This includes Spotify, Firefox, Google Chrome, Brave, VLC, MPV, Rhythmbox, and local audio players.",
+    open: false
+  },
+  {
+    q: "How do software updates work?",
+    a: "OpenNotch includes a built-in background update engine. It checks GitHub's public releases API daily and notifies you directly in the in-shelf Settings tab with release notes and a one-click .deb download link.",
+    open: false
+  }
+])
+
+function toggleFaq(index: number) {
+  faqs.value[index].open = !faqs.value[index].open
 }
 </script>
 
@@ -627,6 +666,45 @@ function simulateUpdateCheck() {
           </h3>
           <div class="mt-3 ml-8 bg-cyber-canvas p-3 rounded-xl border border-cyber-border font-mono text-xs text-cyber-bright">
             <div>systemctl --user enable --now open-notch.service</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-card border border-cyber-border text-xs font-semibold text-cyber-mint font-mono mb-4">
+          <HelpCircle class="w-3.5 h-3.5" />
+          <span>QUESTIONS & ANSWERS</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Frequently Asked Questions</h2>
+        <p class="text-sm text-cyber-muted mt-2">Everything you need to know about OpenNotch, privacy, and compatibility.</p>
+      </div>
+
+      <div class="space-y-3.5">
+        <div 
+          v-for="(faq, idx) in faqs" 
+          :key="faq.q"
+          class="glass-panel rounded-2xl border border-cyber-border/80 overflow-hidden transition-all duration-200"
+          :class="{ 'border-cyber-mint/40 bg-cyber-card/90': faq.open }"
+        >
+          <button 
+            @click="toggleFaq(idx)"
+            class="w-full p-5 text-left flex items-center justify-between gap-4 font-semibold text-base text-white hover:text-cyber-mint transition-colors"
+          >
+            <span>{{ faq.q }}</span>
+            <ChevronDown 
+              class="w-5 h-5 text-cyber-muted transition-transform duration-200 shrink-0" 
+              :class="{ 'rotate-180 text-cyber-mint': faq.open }"
+            />
+          </button>
+          
+          <div 
+            v-if="faq.open"
+            class="px-5 pb-5 text-sm text-cyber-muted leading-relaxed border-t border-cyber-border/40 pt-3"
+          >
+            {{ faq.a }}
           </div>
         </div>
       </div>
