@@ -4,7 +4,7 @@ import {
   Play, Pause, SkipForward, SkipBack, Music, 
   Clock, FileText, Settings, Download, Github, 
   ExternalLink, Check, Copy, Layers, Shield, RefreshCw, 
-  Sparkles, Monitor
+  Sparkles, Monitor, HardDrive, WifiOff, ShieldCheck, Database, Zap
 } from 'lucide-vue-next'
 
 // State for interactive simulator
@@ -519,6 +519,68 @@ function simulateUpdateCheck() {
           <p class="text-sm text-cyber-muted leading-relaxed">
             Released under the permissive MIT license. Complete with vector FreeDesktop standard icons, systemd user services, and no tracking or telemetry.
           </p>
+        </div>
+
+        <!-- Card 7: Local-First & Zero Cloud Lock-In Spotlight -->
+        <div class="md:col-span-3 glass-panel p-8 rounded-3xl border border-cyber-border/90 hover:border-cyber-mint/50 transition-all relative overflow-hidden group">
+          <!-- Background accent glow -->
+          <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-cyber-mint/10 rounded-full blur-3xl pointer-events-none group-hover:bg-cyber-mint/15 transition-all"></div>
+
+          <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 relative z-10">
+            <div class="space-y-3 max-w-xl text-left">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-mint/10 border border-cyber-mint/30 text-xs font-semibold text-cyber-mint font-mono">
+                <HardDrive class="w-3.5 h-3.5" />
+                <span>LOCAL-FIRST BY DESIGN</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white tracking-tight">Your Desktop. Your Files. Zero Cloud Lock-In.</h3>
+              <p class="text-sm text-cyber-muted leading-relaxed">
+                OpenNotch is engineered around the principle that desktop utilities should be 100% offline, privacy-focused, and instant. No external accounts, no cloud sync lock-in, and zero background analytics or tracking.
+              </p>
+            </div>
+
+            <!-- Pillars Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full lg:w-auto shrink-0 text-left">
+              <div class="p-3.5 rounded-xl bg-cyber-canvas/70 border border-cyber-border/70 flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-cyber-mint/10 text-cyber-mint shrink-0 mt-0.5">
+                  <WifiOff class="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">100% Offline Capable</h4>
+                  <p class="text-[11px] text-cyber-muted mt-0.5">Operates with zero internet connection or remote servers.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-cyber-canvas/70 border border-cyber-border/70 flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-cyber-teal/10 text-cyber-teal shrink-0 mt-0.5">
+                  <ShieldCheck class="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">Zero Telemetry</h4>
+                  <p class="text-[11px] text-cyber-muted mt-0.5">No metrics, tracking cookies, or data collection of any kind.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-cyber-canvas/70 border border-cyber-border/70 flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-cyber-teal/10 text-cyber-teal shrink-0 mt-0.5">
+                  <Database class="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">Plain Files & D-Bus</h4>
+                  <p class="text-[11px] text-cyber-muted mt-0.5">Stored locally in standard paths like <code class="text-cyber-mint">~/.config/open-notch</code>.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-cyber-canvas/70 border border-cyber-border/70 flex items-start gap-3">
+                <div class="p-2 rounded-lg bg-cyber-mint/10 text-cyber-mint shrink-0 mt-0.5">
+                  <Zap class="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">Sub-Millisecond Speed</h4>
+                  <p class="text-[11px] text-cyber-muted mt-0.5">Native compiled Rust with zero web-engine or cloud latency.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
