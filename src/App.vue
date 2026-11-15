@@ -65,13 +65,15 @@ function simulateUpdateCheck() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-cyber-canvas text-cyber-bright font-sans relative overflow-hidden">
-    <!-- Ambient background neon glows -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-cyber-mint/10 blur-[130px] rounded-full pointer-events-none"></div>
-    <div class="absolute top-96 right-10 w-[450px] h-[450px] bg-cyber-teal/10 blur-[150px] rounded-full pointer-events-none"></div>
+  <div class="min-h-screen bg-cyber-canvas text-cyber-bright font-sans relative">
+    <!-- Ambient background neon glows (safely clipped so sticky navbar works) -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-cyber-mint/10 blur-[130px] rounded-full"></div>
+      <div class="absolute top-96 right-10 w-[450px] h-[450px] bg-cyber-teal/10 blur-[150px] rounded-full"></div>
+    </div>
 
     <!-- Navigation Bar -->
-    <header class="border-b border-cyber-border/80 sticky top-0 z-50 backdrop-blur-xl bg-cyber-canvas/80">
+    <header class="border-b border-cyber-border/80 sticky top-0 z-50 backdrop-blur-xl bg-cyber-canvas/90 shadow-lg">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <div class="flex items-center space-x-3">
           <img src="/otty.png" alt="OpenNotch Mascot Otty" class="w-9 h-9 rounded-lg border border-cyber-mint/30 shadow-glow-mint/40" />
@@ -83,7 +85,6 @@ function simulateUpdateCheck() {
         <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-cyber-muted">
           <a href="#features" class="hover:text-cyber-mint transition-colors">Features</a>
           <a href="#simulator" class="hover:text-cyber-mint transition-colors">Interactive Demo</a>
-          <a href="#architecture" class="hover:text-cyber-mint transition-colors">Architecture</a>
           <a href="#install" class="hover:text-cyber-mint transition-colors">Install</a>
         </nav>
 
